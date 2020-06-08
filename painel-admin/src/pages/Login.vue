@@ -274,6 +274,6 @@ input[type=text]:placeholder {
 
 #icon {
   width:30%;
-  padding: 10% 0% 30% 0%;
+  margin: 10% 0% 30% 0%;
 }
 </style>
