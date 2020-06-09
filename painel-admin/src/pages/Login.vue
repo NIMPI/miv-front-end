@@ -8,10 +8,22 @@
       <img id="icon" alt="Vue logo" src="../assets/logo.png">
     </div>
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <form @submit.prevent="submit()">
+      <input 
+        required
+        type="text" 
+        class="fadeIn second"
+        placeholder="login"
+        v-model="form.login"
+      >
+      <input
+        required
+        type="password"
+        class="fadeIn third" 
+        placeholder="password"
+        v-model="form.password"
+      >
+      <input type="submit" id="submit" class="fadeIn fourth">
     </form>
     <!-- Remind Passowrd -->
     <div id="formFooter">
@@ -24,8 +36,16 @@
 <script>
 export default {
   name: 'Login',
-  props: {
-
+  data: () => ({
+    form: {
+      login: '',
+      password: ''
+    }
+  }),
+  methods: {
+    submit () {
+      
+    }
   }
 }
 </script>
@@ -136,7 +156,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], input[type=password]  {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -157,7 +177,7 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+input[type=text]:focus, input[type=password]:focus{
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
