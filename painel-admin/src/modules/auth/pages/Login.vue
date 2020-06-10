@@ -1,11 +1,8 @@
 <template>
 <div class="wrapper fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
     <div class="fadeIn first">
-      <img id="icon" alt="Vue logo" src="../assets/logo.png">
+      <img id="icon" alt="Vue logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png">
     </div>
     <!-- Login Form -->
     <form @submit.prevent="submit()">
@@ -14,7 +11,7 @@
         type="text" 
         class="fadeIn second"
         placeholder="login"
-        v-model="form.login"
+        v-model="form.email"
       >
       <input
         required
@@ -25,32 +22,39 @@
       >
       <input type="submit" id="submit" class="fadeIn fourth">
     </form>
-    <!-- Remind Passowrd -->
+    <!-- Remind Passowrd
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
+    </div>  -->
   </div>
 </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: 'Login',
   data: () => ({
     form: {
-      login: '',
-      password: ''
+      email: 'dlowy12@google.co.uk',
+      password: 'xtPqmEFaip2'
     }
   }),
   methods: {
-    submit () {
-      
+    ...mapActions('auth', ['ActionDoLogin']),
+    async submit () {
+      try {
+        await this.ActionDoLogin(this.form)
+
+        this.$router.push({ name: 'home' })
+      } catch (err) {
+        alert(err.data ? err.data.message : 'Não foi possível fazer login')
+      }
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 /* BASIC */
 html {
@@ -136,7 +140,7 @@ input[type=button], input[type=submit], input[type=reset]  {
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  margin: 5px 20px 40px 20px;
+  margin: 35px 20px 40px 20px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
