@@ -1,20 +1,26 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <layout-navbar v-if="showNavbar"/>
+
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './modules/auth/pages/Login.vue'
+import LayoutNavbar from './components/layout/LayoutNavbar'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    LayoutNavbar
+  },
+  computed: {
+    showNavbar () {
+      return this.$route.name !== 'home' && this.$route.name !== 'login'
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

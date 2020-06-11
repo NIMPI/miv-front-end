@@ -6,26 +6,14 @@
     </div>
     <!-- Login Form -->
     <form @submit.prevent="submit()">
-      <input 
-        required
-        type="text" 
-        class="fadeIn second"
-        placeholder="login"
-        v-model="form.email"
-      >
-      <input
-        required
-        type="password"
-        class="fadeIn third" 
-        placeholder="password"
-        v-model="form.password"
-      >
-      <input type="submit" id="submit" class="fadeIn fourth">
+      <input required type="text" v-model="form.email"  class="form-control fadeIn second" placeholder="E-mail">
+      <input required type="password" v-model="form.password" class="form-control fadeIn third" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-    <!-- Remind Passowrd
+    <!-- Remind Passowrd -->
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>  -->
+    </div>
   </div>
 </div>
 </template>
@@ -89,7 +77,7 @@ h2 {
   flex-direction: column; 
   justify-content: center;
   min-height: 100%;
-  padding: 20px;
+  padding: 5%;
 }
 
 #formContent {
@@ -140,7 +128,7 @@ input[type=button], input[type=submit], input[type=reset]  {
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  margin: 35px 20px 40px 20px;
+  margin: 45px 20px 40px 20px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -160,7 +148,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text], input[type=password]  {
+input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -181,7 +169,7 @@ input[type=text], input[type=password]  {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus, input[type=password]:focus{
+input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
@@ -298,6 +286,6 @@ input[type=text]:placeholder {
 
 #icon {
   width:30%;
-  margin: 10% 0% 30% 0%;
+  padding: 10% 0% 30% 0%;
 }
 </style>
