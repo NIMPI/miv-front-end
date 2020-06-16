@@ -10,10 +10,10 @@
       <input required type="password" v-model="form.password" class="form-control fadeIn third" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-    <!-- Remind Passowrd -->
+    <!-- Remind Passowrd 
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
+    </div>-->
   </div>
 </div>
 </template>
@@ -148,7 +148,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;

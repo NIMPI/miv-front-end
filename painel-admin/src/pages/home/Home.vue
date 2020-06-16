@@ -84,10 +84,6 @@ export default {
     .home-link:last-child { background-color: var(--red) }
   }
 
-  .btn-exit {
-    top: 40px;
-    right: 40px;
-    position: absolute;
-  }
+
 }
 </style>
