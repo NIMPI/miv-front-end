@@ -1,15 +1,36 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import '../../../node_modules/material-design-icons/iconfont/material-icons.css';
 
 * {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto', sans-serif;
+
+  @mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+  }
+  .element {
+    @include clearfix;
+  }
 }
 
 .material-icons.md-18 { font-size: 18px }
 .material-icons.md-24 { font-size: 24px }
 .material-icons.md-36 { font-size: 36px }
 .material-icons.md-48 { font-size: 48px }
+
+.container{
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.spacer {
+  border-left: 2px solid #eff4f6;
+  height: 56px;
+}
 
 .logo_navbar{
   width: 50%;
@@ -19,7 +40,26 @@
 }
 
 .avatar_navbar{
-  width: 15%;
+  width: 50px;
   margin: auto;
-  margin-top: 26%;
+}
+
+.icon_color_primary{
+  color: #a6abb3;
+}
+
+.input_container{
+  display: inline-block;
+  text-align: center;
+}
+.awsome_input{
+  padding: 5px 10px;
+  border: none;
+  background: transparent;
+  display: block;
+}
+.awsome_input:focus{
+  border-bottom: 1px solid #117A25;
+  padding: 5px 10px;
+  outline: none;
 }
