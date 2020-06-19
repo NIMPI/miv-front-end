@@ -1,9 +1,10 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300&family=Roboto&display=swap');
 @import '../../../node_modules/material-design-icons/iconfont/material-icons.css';
 
 * {
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 
   @mixin clearfix() {
   &::after {
@@ -22,32 +23,35 @@
 .material-icons.md-36 { font-size: 36px }
 .material-icons.md-48 { font-size: 48px }
 
-.container{
+.navbar {
+}
+.container_componente{
   max-width: 1600px;
+  left: 20px;
   margin: 0 auto;
 }
-
 .spacer {
   border-left: 2px solid #eff4f6;
   height: 56px;
 }
-
+.spacer-h{
+  border-top: 2px solid #6e6f74;
+  width: 90px;
+  height: 2px;
+}
 .logo_navbar{
   width: 50%;
   display: flex;
   margin: auto;
   margin-top: 26%;
 }
-
 .avatar_navbar{
   width: 50px;
   margin: auto;
 }
-
 .icon_color_primary{
   color: #a6abb3;
 }
-
 .input_container{
   display: inline-block;
   text-align: center;
@@ -62,4 +66,25 @@
   border-bottom: 1px solid #117A25;
   padding: 5px 10px;
   outline: none;
+}
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 140px;
+  align-items: center;
+}
+.icon_sidebar{
+  color: #969CBA;
+  border-collapse: 2px solid #969CBA;
+}
+.icon_sidebar:hover{
+  background-color: #ad4141;
 }

@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar-nav navbar-expand-lg bg-light">
     <router-link :to="{ name: 'home' }">
-      <div style="width: 100px; height: 100px;background-color: #117A25; padding: 2%;">
+      <div style="width: 100px; height: 100px;background-color: #117A25;">
         <img src="../../assets/logo.png" alt="Logo" class="logo_navbar" />
       </div>
     </router-link>
@@ -27,8 +27,25 @@
         <i class="material-icons icon_color_primary">notifications</i>
       </button>
       <button class="btn">
-        <i class="material-icons icon_color_primary">exit_to_app</i>
+        <i class="material-icons icon_color_primary mr-2">exit_to_app</i>
       </button>
+    </div>
+    <div class="sidenav align-items-center">
+      <button class="btn mb-3 icon_sidebar">
+        <span class="material-icons ">dashboard</span>
+      </button>
+      <button class="btn mb-3">
+        <i class="material-icons icon_sidebar">folder</i>
+      </button>
+      <button class="btn mb-3">
+        <i class="material-icons icon_sidebar">description</i>
+      </button>
+      <div class="d-flex justify-content-end flex-column" style="height: 650px;">
+        <div class="spacer-h"></div>
+        <button class="btn mt-2">
+          <i class="material-icons icon_sidebar">settings</i>
+        </button>
+      </div>
     </div>
   </nav>
 </template>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <layout-navbar v-if="showNavbar"/>
-
     <router-view/>
   </div>
 </template>
@@ -15,7 +14,7 @@ export default {
   },
   computed: {
     showNavbar () {
-      return this.$route.name !== 'home' && this.$route.name !== 'login'
+      return this.$route.name !== 'login'
     }
   }
 }
