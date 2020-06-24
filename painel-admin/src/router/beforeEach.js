@@ -1,7 +1,7 @@
 import store from '../store'
 
 export default async (to, from, next) => {
-  document.title = `${to.name} - Series Wished`
+  document.title = `${to.name} - NIMPI`
 
   if (to.name !== 'login' && !store.getters['auth/hasToken']) {
     try {
@@ -13,7 +13,7 @@ export default async (to, from, next) => {
     }
   } else {
     if (to.name === 'login' && store.getters['auth/hasToken']) {
-      next({ name: 'home' })
+      next({ name: 'Home' })
     } else {
       next()
     }

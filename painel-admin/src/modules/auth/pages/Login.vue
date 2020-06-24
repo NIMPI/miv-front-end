@@ -34,7 +34,7 @@ export default {
       try {
         await this.ActionDoLogin(this.form)
 
-        this.$router.push({ name: 'home' })
+        this.$router.push({ name: 'Home' })
       } catch (err) {
         alert(err.data ? err.data.message : 'Não foi possível fazer login')
       }

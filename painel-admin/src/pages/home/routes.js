@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ './Home')
   }
 ]

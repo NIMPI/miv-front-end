@@ -1,10 +1,8 @@
 <template>
   <nav class="navbar-nav navbar-expand-lg bg-light">
-    <router-link :to="{ name: 'home' }">
-      <div style="width: 100px; height: 100px;background-color: #117A25;">
-        <img src="../../assets/logo.png" alt="Logo" class="logo_navbar" />
-      </div>
-    </router-link>
+    <div style="z-index: 1; width: 100px; height: 100px;background-color: #117A25;">
+      <img src="../../assets/logo.png" alt="Logo" class="mt-4 logo_navbar" />
+    </div>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
@@ -31,38 +29,46 @@
       </button>
     </div>
     <div class="sidenav align-items-center">
-      <button class="btn mb-3 icon_sidebar">
-        <span class="material-icons ">dashboard</span>
-      </button>
-      <button class="btn mb-3">
-        <i class="material-icons icon_sidebar">folder</i>
-      </button>
-      <button class="btn mb-3">
-        <i class="material-icons icon_sidebar">description</i>
-      </button>
-      <div class="d-flex justify-content-end flex-column" style="height: 650px;">
-        <div class="spacer-h"></div>
-        <button class="btn mt-2">
-          <i class="material-icons icon_sidebar">settings</i>
+      <router-link :to="{ name: 'Home' }">
+        <button class="btn icon_sidebar">
+          <span class="material-icons">dashboard</span>
         </button>
+      </router-link>
+      <router-link :to="{ name: '' }">
+        <button class="btn icon_sidebar">
+          <i class="material-icons ">folder</i>
+        </button>
+      </router-link>
+      <router-link :to="{ name: 'metadados' }">
+      <button class="btn icon_sidebar">
+        <i class="material-icons icon_bar">description</i>
+      </button>
+      </router-link>
+      <div class="d-flex justify-content-end flex-column align-items-center" style="height: 650px;">
+        <div class="spacer-h"></div>
+        <router-link :to="{ name: 'config' }">
+        <button class="btn mt-3 icon_sidebar">
+          <i class="material-icons icon_bar">settings</i>
+        </button>
+        </router-link>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
 export default {
   computed: {
-    ...mapState("auth", ["user"]),
-    routes() {
+    ...mapState('auth', ['user']),
+    routes () {
       return this.$router.options.routes.filter(
         route => route.meta && route.meta.showNavbar
-      );
+      )
     }
   }
-};
+}
 </script>
 
 <style scoped>

@@ -1,37 +1,22 @@
 <template>
-  <div class="container-fluid">
-    <h1 class="mt-3">Todas as séries</h1>
-    <hr>
-
-    <div class="row">
-      <div
-        class="col-3"
-        :key="item.id"
-        v-for="item in seriesList"
-      >
-        <serie-box :serie="item" />
-      </div>
-    </div>
+  <div class="container_componente">
+    <h1 class="mt-4" style="font-family: 'Khula', sans-serif;">Configuracoes</h1>
+    <h6 style="font-family: 'Khula', sans-serif;">Instituto Federal de Rondonia</h6>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import SerieBox from '@/components/SerieBox'
 
 export default {
-  name: 'Series',
+  name: 'Configuracoes',
   components: {
-    SerieBox
   },
   mounted () {
-    this.ActionFindSerieslist()
   },
   computed: {
-    ...mapState('series', ['seriesList'])
   },
   methods: {
-    ...mapActions('series', ['ActionFindSerieslist'])
   }
 }
 </script>

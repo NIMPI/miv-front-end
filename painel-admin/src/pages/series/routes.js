@@ -1,13 +1,11 @@
 export default [
   {
-    name: 'series',
-    path: '/series',
+    name: 'config',
+    path: '/config',
     component: () => import(/* webpackChunkName: "series" */ './Series'),
     meta: {
       showNavbar: true,
-      title: 'Séries',
-      icon: 'dvr',
-      label: 'Todas as séries'
+      title: 'Configurações'
     }
   }
 ]

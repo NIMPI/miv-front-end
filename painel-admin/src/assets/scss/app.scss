@@ -17,18 +17,25 @@
     @include clearfix;
   }
 }
-
+.btn:active,
+.btn:focus,
+.btn.active,
+.btn:active:focus {
+   background-image: none;
+   outline: 0;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+}
 .material-icons.md-18 { font-size: 18px }
 .material-icons.md-24 { font-size: 24px }
 .material-icons.md-36 { font-size: 36px }
 .material-icons.md-48 { font-size: 48px }
 
-.navbar {
-}
 .container_componente{
   max-width: 1600px;
   left: 20px;
-  margin: 0 auto;
+  margin-left: 150px;
+  margin-right: 7%;
 }
 .spacer {
   border-left: 2px solid #eff4f6;
@@ -43,7 +50,6 @@
   width: 50%;
   display: flex;
   margin: auto;
-  margin-top: 26%;
 }
 .avatar_navbar{
   width: 50px;
@@ -61,6 +67,7 @@
   border: none;
   background: transparent;
   display: block;
+  width: 400px;
 }
 .awsome_input:focus{
   border-bottom: 1px solid #117A25;
@@ -73,7 +80,6 @@
   height: 100%;
   width: 100px;
   position: fixed;
-  z-index: -1;
   top: 0;
   left: 0;
   background-color: #111;
@@ -82,9 +88,18 @@
   align-items: center;
 }
 .icon_sidebar{
+  border: 0em;
+  padding-top: 11px;
+  padding-bottom: 6px;
   color: #969CBA;
-  border-collapse: 2px solid #969CBA;
+  margin-bottom: 20px;
 }
 .icon_sidebar:hover{
-  background-color: #ad4141;
+  color: #117A25;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+.icon_bar{
+  justify-items: center;
+
 }
