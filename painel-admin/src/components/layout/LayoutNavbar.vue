@@ -3,7 +3,6 @@
     <div style="z-index: 1; width: 100px; height: 100px;background-color: #117A25;">
       <img src="../../assets/logo.png" alt="Logo" class="mt-4 logo_navbar" />
     </div>
-
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <div class="nav align-items-center">
@@ -24,7 +23,7 @@
       <button class="btn">
         <i class="material-icons icon_color_primary">notifications</i>
       </button>
-      <button class="btn">
+      <button class="btn" v-on:click="deletar()">
         <i class="material-icons icon_color_primary mr-2">exit_to_app</i>
       </button>
     </div>
@@ -66,6 +65,10 @@ export default {
       return this.$router.options.routes.filter(
         route => route.meta && route.meta.showNavbar
       )
+    },
+    deletar () {
+      localStorage.removeItem('token')
+      return location.reload()
     }
   }
 }

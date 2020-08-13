@@ -7,7 +7,7 @@ Vue.use(VueResource)
 
 const http = Vue.http
 
-http.options.root = 'https://guarded-headland-11685.herokuapp.com/'
+http.options.root = 'http://localhost:3000/v1'
 
 http.interceptors.push(interceptors)
 

@@ -6,11 +6,11 @@
     </div>
     <!-- Login Form -->
     <form @submit.prevent="submit()">
-      <input required type="text" v-model="form.email"  class="form-control fadeIn second" placeholder="E-mail">
-      <input required type="password" v-model="form.password" class="form-control fadeIn third" placeholder="password">
+      <input  type="text" v-model="form.email"  class="form-control fadeIn second" placeholder="E-mail">
+      <input  type="password" v-model="form.password" class="form-control fadeIn third" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-    <!-- Remind Passowrd 
+    <!-- Remind Passowrd
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>-->
@@ -24,8 +24,8 @@ import { mapActions } from 'vuex'
 export default {
   data: () => ({
     form: {
-      email: 'dlowy12@google.co.uk',
-      password: 'xtPqmEFaip2'
+      email: 'jhonu@jhoni',
+      password: 'jhonu'
     }
   }),
   methods: {
@@ -66,7 +66,7 @@ h2 {
   font-weight: 600;
   text-transform: uppercase;
   display:inline-block;
-  margin: 40px 8px 10px 8px; 
+  margin: 40px 8px 10px 8px;
   color: #cccccc;
 }
 
@@ -74,7 +74,7 @@ h2 {
 .wrapper {
   display: flex;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   min-height: 100%;
   padding: 5%;
@@ -282,7 +282,7 @@ input[type=text]:placeholder {
 /* OTHERS */
 *:focus {
     outline: none;
-} 
+}
 
 #icon {
   width:30%;

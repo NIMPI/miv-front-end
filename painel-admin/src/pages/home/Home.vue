@@ -2,7 +2,7 @@
   <div id="home">
     <div class="user-info">
       <h2>Olá, {{ user.name }} ;)</h2>
-      <p>Bem vindo ao Séries Wished</p>
+      <p>Bem vindo ao Painel de administração do NIMPI</p>
     </div>
   </div>
 </template>

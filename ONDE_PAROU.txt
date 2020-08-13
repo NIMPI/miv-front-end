@@ -1,5 +1,5 @@
-Video : Vue.js, Vuex e autenticação com API Rest - #01 - Estruturando o projeto
+Tempo: 5:57
 
-Tempo: 22:29
+Ps: Parte de rotas do documento
 
-Ps: Parte de rotas do login 
+Axios : https://www.youtube.com/watch?v=4ky_sGGwsZM&t=155s
