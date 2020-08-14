@@ -48,8 +48,7 @@ export default {
         title: '',
         date: '',
         description: '',
-        type: '',
-        path: ''
+        path: 'titulo.1.jpg'
       },
       arquivos: []
     }
@@ -58,11 +57,9 @@ export default {
     handlefile (e) {
       this.$emit('input', e.target.files[0])
     },
-    async submit () {
+    submit () {
       try {
         Services.salvar(this.arquivo).then(Response => { alert('Enviado') })
-        console.log(this.arquivo)
-        this.$router.push({ name: 'metadados' })
       } catch (err) {
         alert(err.data ? err.data.message : 'Não foi possível enviar o arquivo')
       }
