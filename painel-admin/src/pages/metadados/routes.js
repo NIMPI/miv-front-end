@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'metadados',
+    name: 'Metadados',
     path: '/metadados',
     component: () => import('./Metadados'),
     meta: {

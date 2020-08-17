@@ -33,12 +33,12 @@
           <span class="material-icons">dashboard</span>
         </button>
       </router-link>
-      <router-link :to="{ name: '' }">
+      <router-link :to="{ name: 'watchlist' }">
         <button class="btn icon_sidebar">
           <i class="material-icons ">folder</i>
         </button>
       </router-link>
-      <router-link :to="{ name: 'metadados' }">
+      <router-link :to="{ name: 'Metadados' }">
       <button class="btn icon_sidebar">
         <i class="material-icons icon_bar">description</i>
       </button>
@@ -57,6 +57,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { deleteLocalToken } from '../../modules/auth/storage'
 
 export default {
   computed: {
@@ -67,7 +68,7 @@ export default {
       )
     },
     deletar () {
-      localStorage.removeItem('token')
+      deleteLocalToken()
       return location.reload()
     }
   }
