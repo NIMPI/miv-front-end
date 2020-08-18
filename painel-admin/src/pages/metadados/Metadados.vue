@@ -36,9 +36,12 @@
           <option>Outros</option>
         </select>
       </div>
+      <label>Upload:</label>
       <div alt="Entrada de arquivo" class="form-group">
-        <label>Upload:</label>
-        <input @change="handlefile" type="file" class="form-control-file" />
+        <label class="file" style="">
+          <input request v-on:change="handleFileUpload()" type="file" id="file" aria-label="File browser example">
+          <span class="file-custom"></span>
+        </label>
       </div>
       <button type="submit" class="mt-5 btn btn-success nav p-2 pr-3">
         <i class="material-icons mr-3">done</i>Publicar
@@ -49,29 +52,25 @@
 <script>
 export default {
   name: 'Metadados',
-  props: {
-    value: File
-  },
   data: function () {
     return {
-      post: '',
       title: '',
       date: '',
       description: '',
-      path: 'titulo.1.jpg'
+      path: null
     }
   },
   methods: {
-    handlefile (e) {
-      this.$emit('input', e.target.files[0])
+    handleFileUpload () {
+      this.path = event.target.files[0]
     },
     async submit () {
-      const postData = { title: this.title, date: this.date, description: this.description, path: this.path }
-      this.$http
-        .post('http://localhost:3000/v1/document', postData)
-        .then(res => {
-          console.log(res.body)
-        })
+      const formData = new FormData()
+      formData.append('title', this.title)
+      formData.append('date', this.date)
+      formData.append('description', this.description)
+      formData.append('path', this.path, this.title)
+      this.$http.post('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => { console.log(res.body) })
     }
   }
 }
