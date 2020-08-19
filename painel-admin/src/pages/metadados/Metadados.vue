@@ -70,7 +70,7 @@ export default {
       formData.append('date', this.date)
       formData.append('description', this.description)
       formData.append('path', this.path, this.title)
-      this.$http.post('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => { console.log(res.body) })
+      this.$http.post('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => { console.log(res) })
     }
   }
 }

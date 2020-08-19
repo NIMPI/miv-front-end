@@ -33,19 +33,14 @@
           <span class="material-icons">dashboard</span>
         </button>
       </router-link>
-      <router-link :to="{ name: 'watchlist' }">
+      <router-link :to="{ name: 'Arquivos' }">
         <button class="btn icon_sidebar">
           <i class="material-icons ">folder</i>
         </button>
       </router-link>
-      <router-link :to="{ name: 'Metadados' }">
-      <button class="btn icon_sidebar">
-        <i class="material-icons icon_bar">description</i>
-      </button>
-      </router-link>
       <div class="d-flex justify-content-end flex-column align-items-center" style="height: 650px;">
         <div class="spacer-h"></div>
-        <router-link :to="{ name: 'config' }">
+        <router-link :to="{ name: 'Config' }">
         <button class="btn mt-3 icon_sidebar">
           <i class="material-icons icon_bar">settings</i>
         </button>

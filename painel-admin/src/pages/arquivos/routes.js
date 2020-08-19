@@ -1,13 +1,11 @@
 export default [
   {
-    name: 'watchlist',
-    path: '/watchlist',
-    component: () => import(/* webpackChunkName: "watchlist" */ './Watchlist'),
+    name: 'Arquivos',
+    path: '/arquivos',
+    component: () => import(/* webpackChunkName: "Arquivos" */ './Arquivos'),
     meta: {
       showNavbar: true,
-      title: 'Watchlist',
-      icon: 'playlist_play',
-      label: 'Quero assistir'
+      title: 'Arquivos'
     }
   }
 ]

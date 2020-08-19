@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'config',
+    name: 'Config',
     path: '/config',
     component: () => import(/* webpackChunkName: "series" */ './Config'),
     meta: {
