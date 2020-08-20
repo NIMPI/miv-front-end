@@ -27,7 +27,7 @@
       </div>
       <div alt="Tipo_arquivo" class="form-group">
         <label for="exampleFormControlSelect1">Tipo de arquivo:</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select v-model="type" class="form-control" id="exampleFormControlSelect1">
           <option>Jornal</option>
           <option>Áudio</option>
           <option>Video</option>
@@ -57,6 +57,7 @@ export default {
       title: '',
       date: '',
       description: '',
+      type: '',
       path: null
     }
   },
@@ -69,6 +70,7 @@ export default {
       formData.append('title', this.title)
       formData.append('date', this.date)
       formData.append('description', this.description)
+      formData.append('type', this.type)
       formData.append('path', this.path, this.title)
       this.$http.post('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => { console.log(res) })
     }
