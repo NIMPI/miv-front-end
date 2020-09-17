@@ -2,9 +2,6 @@
   <div class="container_componente">
     <h1 class="mt-4" style="font-family: 'Khula', sans-serif;">Alterar Documento</h1>
     <h6 style="font-family: 'Khula', sans-serif;">NIMPI - Instituto Federal de Rondonia</h6>
-      <button v-on:click="teste()" class="mt-5 btn btn-warning nav p-2 pr-3">
-        <i class="material-icons mr-3">done</i>Teste
-      </button>
       <form class="mt-5" @submit.prevent="submit()">
       <div alt="Nome do arquivo" class="form-group">
         <label>Nome do arquivo:</label>
@@ -12,7 +9,7 @@
           v-model="title"
           type="text"
           class="form-control"
-          placeholder="Correio Popular"
+          placeholder=""
           id="title"
         />
       </div>
@@ -40,7 +37,7 @@
           <option>Outros</option>
         </select>
       </div>
-      <label>Upload:</label>
+      <label>Insira um novo arquivo:</label>
       <div alt="Entrada de arquivo" class="form-group">
         <label class="file" style="">
           <input request v-on:change="handleFileUpload()" type="file" id="file" aria-label="File browser example">
@@ -68,16 +65,14 @@ export default {
     }
   },
   created: function () {
-    this.$http.get('http://localhost:3000/v1/document/5f2f68f8bd52a06f9cd34cf3').then(res => { this.doc = res.body })
+    try {
+      this.$http.get(`http://localhost:3000/v1/document/${this.$route.params.id}`).then(res => { this.doc = res.body.docs })
+    } catch {
+      console.log('Deu erro ao enviar o documento')
+      alert('Erro ao enviar o documento')
+    }
   },
   methods: {
-    async teste () {
-      this.title = this.doc.title
-      this.date = this.doc.createdAt.substring(0, 10)
-      this.description = this.doc.description
-      this.type = this.doc.type
-      this.path = this.doc.path
-    },
     handleFileUpload () {
       this.path = event.target.files[0]
     },

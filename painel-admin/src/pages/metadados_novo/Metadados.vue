@@ -10,24 +10,25 @@
           type="text"
           class="form-control"
           placeholder="Correio Popular"
+          required
         />
       </div>
       <div alt="Date" class="form-group">
         <label for="exampleInputPassword1">Data de publicação:</label>
-        <input v-model="date" type="date" class="form-control" id="exampleInputPassword1" />
+        <input v-model="date" type="date" class="form-control" required />
       </div>
       <div alt="Descrição" class="form-group">
         <label for="exampleFormControlTextarea1">Descrição:</label>
         <textarea
           v-model="description"
           class="form-control"
-          id="exampleFormControlTextarea1"
+          required
           rows="3"
         ></textarea>
       </div>
       <div alt="Tipo_arquivo" class="form-group">
         <label for="exampleFormControlSelect1">Tipo de arquivo:</label>
-        <select v-model="type" class="form-control" id="exampleFormControlSelect1">
+        <select v-model="type" class="form-control" required>
           <option>Jornal</option>
           <option>Áudio</option>
           <option>Video</option>
@@ -39,7 +40,7 @@
       <label>Upload:</label>
       <div alt="Entrada de arquivo" class="form-group">
         <label class="file" style="">
-          <input request v-on:change="handleFileUpload()" type="file" id="file" aria-label="File browser example">
+          <input request v-on:change="handleFileUpload()" type="file" id="file" aria-label="File browser example" required>
           <span class="file-custom"></span>
         </label>
       </div>
@@ -72,7 +73,14 @@ export default {
       formData.append('description', this.description)
       formData.append('type', this.type)
       formData.append('path', this.path)
-      this.$http.post('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => { console.log(res) })
+      try {
+        this.$http.post('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => {
+          alert('Enviado com sucesso !')
+          this.$router.push({ name: 'Arquivos' })
+        })
+      } catch (err) {
+        alert('Não foi possivel enviar !' + err)
+      }
     }
   }
 }
