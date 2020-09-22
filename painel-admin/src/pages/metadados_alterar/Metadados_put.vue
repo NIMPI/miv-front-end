@@ -6,7 +6,7 @@
       <div alt="Nome do arquivo" class="form-group">
         <label>Nome do arquivo:</label>
         <input
-          v-model="title"
+          v-model="doc.title"
           type="text"
           class="form-control"
           placeholder=""
@@ -15,12 +15,16 @@
       </div>
       <div alt="Data" class="form-group">
         <label>Data de publicação:</label>
-        <input v-model="date" type="date" class="form-control" id="date" />
+        <input
+        v-model="doc.dateCreated.substr(0, 10)"
+        type="date"
+        class="form-control"
+        />
       </div>
       <div alt="Descrição" class="form-group">
         <label>Descrição:</label>
         <textarea
-          v-model="description"
+          v-model="doc.description"
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
@@ -28,7 +32,7 @@
       </div>
       <div alt="Tipo do arquivo" class="form-group">
         <label>Tipo de arquivo:</label>
-        <select v-model="type" class="form-control" id="exampleFormControlSelect1">
+        <select v-model="doc.type" class="form-control" id="exampleFormControlSelect1">
           <option>Jornal</option>
           <option>Áudio</option>
           <option>Video</option>
@@ -66,9 +70,11 @@ export default {
   },
   created: function () {
     try {
-      this.$http.get(`http://localhost:3000/v1/document/${this.$route.params.id}`).then(res => { this.doc = res.body.docs })
+      this.$http.get(`http://localhost:3000/v1/document/${this.$route.params.id}`).then(res => {
+        this.doc = res.body
+      })
     } catch {
-      console.log('Deu erro ao enviar o documento')
+      console.log('Deu erro ao puxar o documento')
       alert('Erro ao enviar o documento')
     }
   },
@@ -88,5 +94,3 @@ export default {
   }
 }
 </script>
-<style>
-</style>

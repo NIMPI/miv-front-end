@@ -1,8 +1,28 @@
 <template>
-  <div id="home">
-    <div class="user-info">
-      <h2>Olá, {{ user.name }} ;)</h2>
-      <p>Bem vindo ao Painel de administração do NIMPI</p>
+  <div class="container_componente">
+    <h1 class="mt-4" style="font-family: 'Khula', sans-serif;">Bem vindo, {{ user.name }} ;)</h1>
+    <h6 style="font-family: 'Khula', sans-serif;">Instituto Federal de Rondonia</h6>
+    <div class="pt-4 d-flex flex-row justify-content-between">
+      <div class="p-2 card">
+        <div class="icon"><i class="material-icons">folder</i></div>
+        <h3>63</h3>
+        <p>Documentos disponíveis</p>
+      </div>
+      <div class="p-2 card">
+        <div class="icon"><i class="material-icons">folder</i></div>
+        <h3>63</h3>
+        <p>Documentos disponíveis</p>
+        </div>
+      <div class="p-2 card">
+        <div class="icon"><i class="material-icons">folder</i></div>
+        <h3>63</h3>
+        <p>Documentos disponíveis</p>
+        </div>
+      <div class="p-2 card">
+        <div class="icon"><i class="material-icons">folder</i></div>
+        <h3>63</h3>
+        <p>Documentos disponíveis</p>
+        </div>
     </div>
   </div>
 </template>
@@ -15,34 +35,18 @@ export default {
   computed: {
     ...mapState('auth', ['user']),
     routes () {
-      return this.$router.options.routes.filter(route => (
-        route.meta && route.meta.showNavbar
-      ))
+      return this.$router.options.routes.filter(
+        (route) => route.meta && route.meta.showNavbar
+      )
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@mixin flex-center($columns: false) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @if $columns {
-    flex-direction: column;
-  }
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border: 1px solid black;
 }
-
-#home {
-  width: 100%;
-  height: 100vh;
-  @include flex-center(true);
-  justify-content: space-around;
-
-  .user-info {
-    text-align: center;
-  }
-
+.icon{
 }
 </style>
