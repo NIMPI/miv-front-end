@@ -13,10 +13,11 @@
         </div>
       </ul>
       <div>
-        <p class="mr-3 d-inline-flex text-center">{{ user.name }}</p>
+        <p class="mr-3 d-inline-flex text-center"></p>
         <img class="avatar_navbar" src="../../assets/images/avatar.png" alt="Avatar" />
+        <p class="ml-4 d-inline-flex text-center">{{ user.name }}</p>
         <button class="btn">
-          <i class="material-icons icon_color_primary">keyboard_arrow_down</i>
+          <i class="material-icons icon_color_primary mt-2">keyboard_arrow_down</i>
         </button>
       </div>
       <div class="spacer"></div>
