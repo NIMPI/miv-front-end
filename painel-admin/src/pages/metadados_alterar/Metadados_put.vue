@@ -16,7 +16,7 @@
       <div alt="Data" class="form-group">
         <label>Data de publicação:</label>
         <input
-        v-model="doc.dateCreated.substr(0, 10)"
+        v-model="doc.dateCreated.substr"
         type="date"
         class="form-control"
         />

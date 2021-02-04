@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar-nav navbar-expand-lg bg-light">
-    <div style="z-index: 1; width: 100px; height: 100px;background-color: #117A25;">
+    <div style="z-index: 1; width: 5rem; height: 5rem;background-color: #117A25;">
       <img src="../../assets/logo.png" alt="Logo" class="mt-4 logo_navbar" />
     </div>
     <div class="collapse navbar-collapse">
@@ -28,26 +28,6 @@
         <i class="material-icons icon_color_primary mr-2">exit_to_app</i>
       </button>
     </div>
-    <div class="sidenav align-items-center">
-      <router-link :to="{ name: 'Home' }">
-        <button class="btn icon_sidebar">
-          <span class="material-icons">dashboard</span>
-        </button>
-      </router-link>
-      <router-link :to="{ name: 'Arquivos' }">
-        <button class="btn icon_sidebar">
-          <i class="material-icons ">folder</i>
-        </button>
-      </router-link>
-      <div class="d-flex justify-content-end flex-column align-items-center" style="height: 650px;">
-        <div class="spacer-h"></div>
-        <router-link :to="{ name: 'Config' }">
-        <button class="btn mt-3 icon_sidebar">
-          <i class="material-icons icon_bar">settings</i>
-        </button>
-        </router-link>
-      </div>
-    </div>
   </nav>
 </template>
 
@@ -71,10 +51,57 @@ export default {
 }
 </script>
 
-<style scoped>
-.btn-exit {
+<style lang="scss">
+.spacer {
+  border-left: 2px solid #eff4f6;
+  height: 56px;
+}
+.spacer-h{
+  border-top: 2px solid #6e6f74;
+  width: 90px;
+  height: 2px;
+}
+.logo_navbar{
+  width: 50%;
   display: flex;
-  top: 40px;
-  right: 40px;
+  margin: auto;
+}
+.avatar_navbar{
+  width: 50px;
+  margin: auto;
+}
+.icon_color_primary{
+  color: #a6abb3;
+}
+.input_container{
+  display: inline-block;
+  text-align: center;
+}
+.awsome_input{
+  padding: 5px 10px;
+  border: none;
+  background: transparent;
+  display: block;
+  width: 400px;
+}
+.awsome_input:focus{
+  border-bottom: 1px solid #117A25;
+  padding: 5px 10px;
+  outline: none;
+}
+.icon_sidebar{
+  border: 0em;
+  padding-top: 11px;
+  padding-bottom: 6px;
+  color: #969CBA;
+  margin-bottom: 20px;
+}
+.icon_sidebar:hover{
+  color: #117A25;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+.icon_bar{
+  justify-items: center;
 }
 </style>

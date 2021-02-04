@@ -24,8 +24,8 @@ import { mapActions } from 'vuex'
 export default {
   data: () => ({
     form: {
-      email: 'jhonu@jhoni',
-      password: 'jhonu'
+      email: 'victor@victor',
+      password: 'victor'
     }
   }),
   methods: {
@@ -49,7 +49,7 @@ html {
   background-color: #56baed;
 }
 
-body {
+* {
   font-family: "Poppins", sans-serif;
 }
 
