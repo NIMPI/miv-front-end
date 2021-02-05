@@ -1,8 +1,8 @@
 <template>
-  <div class="container_componente">
-    <h1 class="mt-4" style="font-family: 'Khula', sans-serif;">Arquivos</h1>
+  <div class="container-componente">
+    <h1 style="font-family: 'Khula', sans-serif;">Arquivos</h1>
     <h6 style="font-family: 'Khula', sans-serif;">Instituto Federal de Rondonia</h6>
-    <div style="margin-top: -65px" class="float-right mb-5">
+    <div class="float-right mb-5">
     <router-link :to="{ name: 'Metadados' }">
       <button class="btn btn-success mr-3">Novo Documento</button>
     </router-link>

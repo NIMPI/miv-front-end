@@ -1,12 +1,12 @@
 <template>
-  <nav class="navbar-nav navbar-expand-lg bg-light">
-    <div style="z-index: 1; width: 5rem; height: 5rem;background-color: #117A25;">
+  <nav class="nav navbar-nav navbar-expand-lg bg-light">
+    <div style="width: 5rem; height: 5rem;background-color: #117A25;">
       <img src="../../assets/logo.png" alt="Logo" class="mt-4 logo_navbar" />
     </div>
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
+      <ul class="mr-auto">
         <div class="nav align-items-center">
-          <i class="ml-5 mr-2 material-icons icon_color_primary">search</i>
+          <i class="material-icons icon_color_primary">search</i>
           <div class="input_container">
             <input type="text" class="awsome_input" placeholder="Pesquisar..." />
           </div>
@@ -52,6 +52,16 @@ export default {
 </script>
 
 <style lang="scss">
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  width: 100%;
+  z-index: 10;
+}
 .spacer {
   border-left: 2px solid #eff4f6;
   height: 56px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container_componente">
+  <div class="container-componente">
     <h1 class="mt-4" style="font-family: 'Khula', sans-serif;">Alterar Documento</h1>
     <h6 style="font-family: 'Khula', sans-serif;">NIMPI - Instituto Federal de Rondonia</h6>
       <form class="mt-5" @submit.prevent="submit()">

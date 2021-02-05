@@ -1,5 +1,5 @@
 <template>
-  <div class="container_componente">
+  <div class="container-componente">
     <h1>Bem vindo, {{ user.name }} ;)</h1>
     <h6>Instituto Federal de Rondonia</h6>
   </div>
