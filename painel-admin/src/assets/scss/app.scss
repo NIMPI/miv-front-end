@@ -17,9 +17,11 @@
     @include clearfix;
   }
 }
-
-@media screen and (max-width: 640px) {
-
+@media only screen and (max-width: 600px) {
+  .container-componente{
+    margin: 0 !important;
+    top: 0 !important;
+  }
 }
 
 .container-componente{
@@ -29,6 +31,9 @@
   flex-direction: column;
   top: 5rem;
   padding: 1rem;
-  max-width: 1600px;
   margin-left: 5rem;
+  margin-right: 5rem !important;
+  width: 100vw;
+  height: 100vw;
+  background-color: #f0f0f0;
 }

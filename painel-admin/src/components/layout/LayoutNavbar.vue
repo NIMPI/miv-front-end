@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav navbar-nav navbar-expand-lg bg-light">
+  <nav class="nav navbar-nav navbar-expand-lg bg-light mobile">
     <div style="width: 5rem; height: 5rem;background-color: #117A25;">
       <img src="../../assets/logo.png" alt="Logo" class="mt-4 logo_navbar" />
     </div>
@@ -113,5 +113,10 @@ export default {
 }
 .icon_bar{
   justify-items: center;
+}
+@media only screen and (max-width:600px) {
+  .mobile{
+    display: none !important;
+  }
 }
 </style>
