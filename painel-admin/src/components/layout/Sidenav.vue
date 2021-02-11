@@ -32,7 +32,7 @@
         </li>
       </router-link>
         <li class="nav-item">
-          <router-link :to="{ name: 'Home' }">
+          <router-link style="text-decoration:none !important" :to="{ name: 'Home' }">
             <a href="#" class="nav-link">
               <svg
             aria-hidden="true"
@@ -52,7 +52,7 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Arquivos' }">
+          <router-link style="text-decoration:none !important" :to="{ name: 'Arquivos' }">
           <a href="#" class="nav-link">
             <svg
             aria-hidden="true"
@@ -72,7 +72,7 @@
           </router-link>
         </li>
       <li class="nav-item">
-        <router-link :to="{ name: 'Config' }">
+        <router-link style="text-decoration:none !important" :to="{ name: 'Config' }">
           <a href="#" class="nav-link">
             <svg
             aria-hidden="true"

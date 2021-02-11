@@ -11,21 +11,21 @@
     <table class="table">
       <thead class="thead-light">
         <tr>
-          <th style="width:330px;">Nome</th>
-          <th>Tamanho</th>
-          <th>Tipo</th>
-          <th>Descrição</th>
-          <th>Data de Upload</th>
-          <th></th>
+          <th scope="col">Nome</th>
+          <th scope="col">Tamanho</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Data de Upload</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr  style="height:60px;" v-for="(doc, id) in docs" v-bind:key="id">
-          <td style="width:400px;">{{ doc.title }}</td>
-          <td>{{ doc.size + ' Mb'}}</td>
-          <td>{{ doc.type }}</td>
-          <td style="width:400px;">{{ doc.description }}</td>
-          <td>{{ new Date(doc.dateCreated).toLocaleString() }}</td>
+        <tr style="height:60px;" v-for="(doc, id) in docs" v-bind:key="id">
+          <td data-title="Nome" style="width:400px;">{{ doc.title }}</td>
+          <td data-title="Tamanho">{{ doc.size + ' Mb'}}</td>
+          <td data-title="Tipo">{{ doc.type }}</td>
+          <td data-title="Descrição" style="width:400px;">{{ doc.description }}</td>
+          <td data-label="Data de Upload">{{ new Date(doc.dateCreated).toLocaleString() }}</td>
           <td>
             <router-link :to="{ name: 'Metadadosput', params:{id: (doc._id)} }">
               <button class="btn btn-primary mr-3">
@@ -93,10 +93,11 @@ export default {
       try {
         this.$http.delete(`http://localhost:3000/v1/document/` + id).then(res => {
           alert('Excluido com Sucesso !')
-          this.view()
         })
       } catch (err) {
         console.log(err)
+      } finally {
+        this.view()
       }
     }
   }
@@ -105,5 +106,25 @@ export default {
 <style>
 th{
   padding:10px 15px;
+}
+table{
+  width: 100%;
+  max-width: 1220px;
+  margin: 0px auto;
+  box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
+  -moz-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
+  -webkit-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
+}
+
+@media screen and (max-width:767px) {
+  table thead{display: none;}
+  table tbody{padding:0 16px;}
+  table tbody, table tbody tr{display: block; width: 100%;}
+  table tbody tr th::before, table tbody tr td::before{content: attr(data-title); display: block;}
+  table tbody tr td
+  table tbody tr th{display: block; width: 50%; float: left;}
+  table tbody tr{margin-bottom: 16px; float: left; clear: both; box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
+  -moz-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
+  -webkit-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);}
 }
 </style>
