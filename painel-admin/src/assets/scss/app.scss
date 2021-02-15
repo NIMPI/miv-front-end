@@ -18,9 +18,18 @@
 }
 @media only screen and (max-width: 600px) {
   .container-componente{
+    z-index: -1;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 5rem;
+    width: 100vw;
+    height: 500vw !important;
     margin: 0 !important;
     top: 0 !important;
     padding: 1rem !important;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
   }
 }
 

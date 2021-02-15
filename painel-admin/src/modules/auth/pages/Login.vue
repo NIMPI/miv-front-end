@@ -80,6 +80,12 @@ h2 {
   padding: 5%;
 }
 
+@media screen and (max-width: 679px) {
+  .wrapper {
+    padding: 8rem 5% 5% 5%;
+}
+}
+
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;

@@ -2,31 +2,31 @@
   <div class="container-componente">
     <h1 style="font-family: 'Khula', sans-serif;">Arquivos</h1>
     <h6 style="font-family: 'Khula', sans-serif;">Instituto Federal de Rondonia</h6>
-    <div class="float-right mb-5">
+    <div class="float-right mb-3">
     <router-link :to="{ name: 'Metadados' }">
       <button class="btn btn-success mr-3">Novo Documento</button>
     </router-link>
     <button v-on:click="view()" class="btn btn-info ml-4">Atualizar</button>
     </div>
-    <table class="table">
-      <thead class="thead-light">
+    <table>
+      <thead>
         <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Tamanho</th>
-          <th scope="col">Tipo</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Data de Upload</th>
-          <th scope="col"></th>
+          <th>Nome</th>
+          <th>Tamanho</th>
+          <th>Tipo</th>
+          <th>Descrição</th>
+          <th>Data de Upload</th>
+          <th></th>
         </tr>
-      </thead>
-      <tbody>
-        <tr style="height:60px;" v-for="(doc, id) in docs" v-bind:key="id">
-          <td data-title="Nome" style="width:400px;">{{ doc.title }}</td>
-          <td data-title="Tamanho">{{ doc.size + ' Mb'}}</td>
-          <td data-title="Tipo">{{ doc.type }}</td>
-          <td data-title="Descrição" style="width:400px;">{{ doc.description }}</td>
-          <td data-label="Data de Upload">{{ new Date(doc.dateCreated).toLocaleString() }}</td>
-          <td>
+    </thead>
+    <tbody>
+        <tr v-for="(doc, id) in docs" v-bind:key="id">
+          <td class="nome" data-title="Nome">{{ doc.title }}</td>
+          <td class="tamanho" data-title="Tamanho">{{ doc.size + ' Mb'}}</td>
+          <td class="tipo" data-title="Tipo">{{ doc.type }}</td>
+          <td class="descricao" data-title="Descrição">{{ doc.description }}</td>
+          <td class="data" data-label="Data de Upload">{{ new Date(doc.dateCreated).toLocaleString() }}</td>
+          <td class="icons">
             <router-link :to="{ name: 'Metadadosput', params:{id: (doc._id)} }">
               <button class="btn btn-primary mr-3">
                 <i class="material-icons d-flex justify-content-center">create</i>
@@ -37,9 +37,9 @@
             </button>
           </td>
         </tr>
-      </tbody>
+    </tbody>
     </table>
-    <nav aria-label="Page navigation example">
+    <nav class="pag">
       <ul class="pagination" >
         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
         <li v-for="page in pages" :class="{ active: pagination.page === page }" class="page-item" v-bind:key="page">
@@ -104,27 +104,152 @@ export default {
 }
 </script>
 <style>
-th{
-  padding:10px 15px;
+template{
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
-table{
-  width: 100%;
-  max-width: 1220px;
-  margin: 0px auto;
-  box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
-  -moz-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
-  -webkit-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
+.nome{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 16rem;
+  max-height: 2rem;
+}
+.tamanho{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 10rem;
+  max-height: 2rem;
+  overflow: hidden !important;
+}
+.tipo{
+  max-width: 7rem;
+  max-height: 2rem;
+  overflow: hidden !important;
+}
+.descricao{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 30rem;
+  max-height: 2rem;
+  overflow: hidden !important;
+}
+.data{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 9rem;
+  max-height: 2rem;
+  overflow: hidden !important;
+}
+.icons{
+  text-align: center;
 }
 
-@media screen and (max-width:767px) {
-  table thead{display: none;}
-  table tbody{padding:0 16px;}
-  table tbody, table tbody tr{display: block; width: 100%;}
-  table tbody tr th::before, table tbody tr td::before{content: attr(data-title); display: block;}
-  table tbody tr td
-  table tbody tr th{display: block; width: 50%; float: left;}
-  table tbody tr{margin-bottom: 16px; float: left; clear: both; box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
-  -moz-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);
-  -webkit-box-shadow: 0px 4px 20px rgba(5, 577, 94, .5);}
+table{
+  font-family: sans-serif;
+  width: 100%;
+  border-collapse: collapse !important;
+}
+th{
+  background-color: #333;
+  color: #fff;
+}
+th, td{
+  padding: .8rem;
+  font-size: 1.2rem;
+}
+td{
+  max-height: 15px;
+}
+tbody{
+  background-color: #eee;
+  color: #555;
+}
+.pag{
+  padding-top: 1.5rem;
+}
+
+@media screen and (max-width: 600px){
+  template{
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+  }
+
+  thead{
+    display: none;
+  }
+  td{
+    display: block;
+    overflow: hidden;
+  }
+  .nome{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+    max-height: 15vw;
+  }
+  .tamanho{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+    max-height: 15vw;
+  }
+  .tipo{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+    max-height: 15vw;
+  }
+  .descricao{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+    max-height: 15vw;
+  }
+  .data{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+    max-height: 15vw;
+  }
+  .icons{
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+    max-height: 15vw;
+  }
+
+  td:first-child{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+
+  td:nth-child(2)::before{
+    content: "Tamanho";
+  }
+
+  td:nth-child(3)::before{
+    content: "Tipo";
+  }
+
+  td:nth-child(4)::before{
+    content: "Descrição";
+  }
+
+  td:nth-child(5)::before{
+    content: "Data";
+  }
+
+  td{
+    text-align: right;
+  }
+
+  td::before{
+    float: left;
+    margin-right: 3rem;
+    font-weight: bold;
+  }
 }
 </style>

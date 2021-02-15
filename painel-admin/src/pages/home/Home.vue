@@ -94,11 +94,10 @@ template{
 .card-animate {
   display: flex;
   flex-direction: row;
-  padding-right: 5rem;
   .card-body {
     &:before {
       transition: .5s ease;
-      content: "1";
+      content: "63";
       display: block;
       font-size: 15rem;
       font-weight: 900;
