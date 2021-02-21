@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr v-for="(doc, id) in docs" v-bind:key="id">
+        <tr class="celula" v-for="(doc, id) in docs" v-bind:key="id">
           <td class="nome" data-title="Nome">{{ doc.title }}</td>
           <td class="tamanho" data-title="Tamanho">{{ doc.size + ' Mb'}}</td>
           <td class="tipo" data-title="Tipo">{{ doc.type }}</td>
@@ -39,15 +39,17 @@
         </tr>
     </tbody>
     </table>
-    <nav class="pag">
-      <ul class="pagination" >
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li v-for="page in pages" :class="{ active: pagination.page === page }" class="page-item" v-bind:key="page">
-          <a class="page-link" href="#" v-on:click="navigate(page)">{{page}}</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </nav>
+    <div class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" v-on:click="navigate(numPage-1)">&laquo;</a>
+      </li>
+      <li v-for="page in pages" :class="{ active: pagination.page === page }" class="page-item" v-bind:key="page">
+        <a class="page-link" href="#" v-on:click="navigate(page)">{{page}}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" v-on:click="navigate(numPage+1)">&raquo;</a>
+      </li>
+    </div>
   </div>
 </template>
 <script>
@@ -79,6 +81,7 @@ export default {
         this.docs = res.body.docs
         this.pagination = res.body
         this.pages = range(1, this.pagination.totalPages + 1)
+        console.log(this.pagination.page)
       })
     },
     navigate (page) {
@@ -114,6 +117,7 @@ template{
   text-overflow: ellipsis;
   max-width: 16rem;
   max-height: 2rem;
+  overflow: hidden !important;
 }
 .tamanho{
   text-overflow: ellipsis;
@@ -144,7 +148,6 @@ template{
 .icons{
   text-align: center;
 }
-
 table{
   font-family: sans-serif;
   width: 100%;
@@ -165,16 +168,36 @@ tbody{
   background-color: #eee;
   color: #555;
 }
-.pag{
-  padding-top: 1.5rem;
+.pagination {
+  display: inline-block;
 }
 
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50 !important;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
 @media screen and (max-width: 600px){
+  .celula{
+    display: block;
+    padding-top: 2rem !important;
+  }
   template{
     overflow-x: hidden !important;
     overflow-y: scroll !important;
   }
-
   thead{
     display: none;
   }
@@ -185,39 +208,39 @@ tbody{
   .nome{
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100vw;
+    max-width: 93.7vw !important;
     max-height: 15vw;
   }
   .tamanho{
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100vw;
+    max-width: 93vw !important;
     max-height: 15vw;
   }
   .tipo{
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100vw;
+    max-width: 93vw !important;
     max-height: 15vw;
   }
   .descricao{
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100vw;
+    max-width: 93vw !important;
     max-height: 15vw;
   }
   .data{
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100vw;
-    max-height: 15vw;
+    max-width: 93vw !important;
+    max-height: 15vh;
   }
   .icons{
     text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100vw;
-    max-height: 15vw;
+    max-width: 93vw !important;
+    max-height: 15vh;
   }
 
   td:first-child{

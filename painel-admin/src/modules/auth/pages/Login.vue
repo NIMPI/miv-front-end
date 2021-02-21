@@ -82,7 +82,7 @@ h2 {
 
 @media screen and (max-width: 679px) {
   .wrapper {
-    padding: 8rem 5% 5% 5%;
+    padding: 30vw 5% 5% 5%;
 }
 }
 

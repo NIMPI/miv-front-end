@@ -229,6 +229,8 @@ main {
 /* Small screens */
 @media only screen and (max-width: 600px) {
   .navbar1 {
+    display: block;
+    position: fixed;
     bottom: 0;
     width: 100vw;
     height: 5rem;
@@ -250,6 +252,7 @@ main {
 /* Large screens */
 @media only screen and (min-width: 600px) {
   .navbar1 {
+    position: fixed;
     top: 0;
     width: 5rem;
     height: 100vh;

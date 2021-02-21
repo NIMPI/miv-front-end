@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="card-animate">
-          <div class="col-4">
+          <div class="padding">
             <div class="card border">
               <div class="card-body">
                 <div class="card-title">
@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="padding">
             <div class="card border">
               <div class="card-body2">
                 <div class="card-title">
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="padding">
             <div class="card border">
               <div class="card-body3">
                 <div class="card-title">
@@ -61,6 +61,123 @@ export default {
 <style lang="scss">
 template{
   font-family: 'Khula', sans-serif;
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+}
+@media only screen and (min-width: 600px) {
+  .padding{
+    padding-top: 2rem !important;
+    padding-right: 2rem;
+    width: 33vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .padding{
+    padding-top: 2rem !important;
+  }
+  .card {
+    transition: .5s ease;
+    border-radius: 0;
+    width: 100vw border;
+    &:hover {
+      box-shadow: 0px 0px 18px -4px rgba(143, 143, 143, 0.726);
+    }
+    &-body {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    &-body2 {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    &-body3 {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+  .card-animate {
+    display: flex;
+    flex-direction: column !important;
+    .card-body {
+      &:before {
+        transition: .5s ease;
+        content: "63";
+        display: block;
+        font-size: 15rem;
+        font-weight: 900;
+        position: absolute;
+        bottom: 5rem;
+        line-height: 0;
+        left: -.85rem;
+        padding: 0;
+        margin: 0;
+        color: rgba(0,0,0,.10);
+        z-index: 0;
+      }
+    }
+    .card-body2 {
+      &:before {
+        transition: .5s ease;
+        content: "358";
+        display: block;
+        font-size: 15rem;
+        font-weight: 900;
+        position: absolute;
+        bottom: 15rem;
+        line-height: 0;
+        left: -.85rem;
+        padding: 0;
+        margin: 0;
+        color: rgba(0,0,0,.10);
+        z-index: 0;
+      }
+    }
+    .card-body3 {
+      &:before {
+        transition: .5s ease;
+        content: "1000";
+        display: block;
+        font-size: 15rem;
+        font-weight: 900;
+        position: absolute;
+        bottom: 5rem;
+        line-height: 0;
+        left: -.85rem;
+        padding: 0;
+        margin: 0;
+        color: rgba(0,0,0,.10);
+        z-index: 0;
+      }
+    }
+    .card {
+      &:hover {
+        .card-body {
+          &:before {
+            transform: translate(10px,-10px) !important;
+          }
+        }
+        .card-body2 {
+          &:before {
+            transform: translate(10px,-10px) !important;
+          }
+        }
+        .card-body3 {
+          &:before {
+            transform: translate(10px,-10px) !important;
+          }
+        }
+      }
+    }
+  }
 }
 .card {
   transition: .5s ease;
@@ -114,7 +231,7 @@ template{
   .card-body2 {
     &:before {
       transition: .5s ease;
-      content: "2";
+      content: "358";
       display: block;
       font-size: 15rem;
       font-weight: 900;
@@ -131,7 +248,7 @@ template{
   .card-body3 {
     &:before {
       transition: .5s ease;
-      content: "3";
+      content: "1000";
       display: block;
       font-size: 15rem;
       font-weight: 900;
