@@ -2,6 +2,7 @@
   <div class="container-componente">
     <h1 class="mt-4" style="font-family: 'Khula', sans-serif;">Alterar Documento</h1>
     <h6 style="font-family: 'Khula', sans-serif;">NIMPI - Instituto Federal de Rondonia</h6>
+    <span v-html="HTMLcontent"></span>
       <form class="mt-5" @submit.prevent="submit()">
       <div alt="Nome do arquivo" class="form-group">
         <label>Nome do arquivo:</label>
@@ -89,7 +90,14 @@ export default {
       formData.append('description', this.description)
       formData.append('type', this.type)
       formData.append('path', this.path)
-      this.$http.put('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => { console.log(res) })
+      try {
+        this.$http.put('http://localhost:3000/v1/document', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(res => {
+          this.HTMLcontent = `<div id="alertsu" class="alert alert-success fade show" role="alert"><strong>Enviado com sucesso!</strong></div>`
+          this.$router.push({ name: 'Arquivos' })
+        })
+      } catch (err) {
+        alert('Não foi possivel enviar !' + err)
+      }
     }
   }
 }
